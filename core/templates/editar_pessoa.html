@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Updating Pessoa: {{ pessoa }}</h2>
+
+    <form action="{% url 'editar_pessoa' pessoa.id %}" method="POST">
+        {% csrf_token %}
+
+        {{form}}
+
+        <button type="submit">Salvar</button>
+
+        {% if pessoa %}
+        <a href="{% url 'deleta_pessoa' pessoa.id %}">Deletar</a>
+        {% endif %}
+    </form>
+
+</body>
+</html>

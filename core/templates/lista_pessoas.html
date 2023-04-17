@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesoas</title>
+</head>
+<body>
+<h1>Criar Pessoa</h1>
+
+<form action="{% url 'core_pessoa_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{form}}
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+
+
+<h1>Lista de Pessoas</h1>
+
+<ul>
+{% for pessoa in pessoas %}
+    <a href="{% url 'editar_pessoa' pessoa.id %}">
+    <li>Nome: {{ pessoa.name }}</li>
+{% endfor %}
+</ul>
+
+
+</body>
+</html>
+
